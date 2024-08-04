@@ -1,7 +1,10 @@
 so i don't forgor in the future :skull:
 
 docker build -t rest-apis-flask-python .
-docker run -p 5005:5000 rest-apis-flask-python
+docker run -dp 5005:5000 rest-apis-flask-python
+
+sync host folder with container folder:
+docker run -dp 5005:5000 -w /app -v "c/Users/Yoshitaka/Desktop/Work/pythonapi:/app" rest-apis-flask-python
 
 docker compose up (after creating docker-compose.yaml)
 
