@@ -1,0 +1,8 @@
+so i don't forgor in the future :skull:
+
+docker build -t rest-apis-flask-python .
+docker run -p 5005:5000 rest-apis-flask-python
+
+docker compose up (after creating docker-compose.yaml)
+
+GET http://127.0.0.1:5005/store on postman
