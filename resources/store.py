@@ -1,4 +1,3 @@
-from flask import request
 from flask.views import MethodView
 from flask_smorest import Blueprint, abort
 from sqlalchemy.exc import SQLAlchemyError, IntegrityError
@@ -18,7 +17,9 @@ class Store(MethodView):
 
     def delete(self, store_id):
         store = StoreModel.query.get_or_404(store_id)
-        raise NotImplementedError("Deleting store is not implemented yet.")
+        db.session.delete(store)
+        db.session.commit()
+        return {"message": "store deleted."}
 
 @blp.route("/store")
 class StoreList(MethodView):
